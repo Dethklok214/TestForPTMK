@@ -1,0 +1,11 @@
+D:\Labs\TestTask\TestTask\bin\Debug\TestTask.exe.config
+D:\Labs\TestTask\TestTask\bin\Debug\TestTask.exe
+D:\Labs\TestTask\TestTask\bin\Debug\TestTask.pdb
+D:\Labs\TestTask\TestTask\bin\Debug\EntityFramework.dll
+D:\Labs\TestTask\TestTask\bin\Debug\EntityFramework.SqlServer.dll
+D:\Labs\TestTask\TestTask\bin\Debug\EntityFramework.xml
+D:\Labs\TestTask\TestTask\bin\Debug\EntityFramework.SqlServer.xml
+D:\Labs\TestTask\TestTask\obj\Debug\TestTask.csprojResolveAssemblyReference.cache
+D:\Labs\TestTask\TestTask\obj\Debug\TestTask.csproj.CoreCompileInputs.cache
+D:\Labs\TestTask\TestTask\obj\Debug\TestTask.exe
+D:\Labs\TestTask\TestTask\obj\Debug\TestTask.pdb
