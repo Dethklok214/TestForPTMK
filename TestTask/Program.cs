@@ -39,33 +39,25 @@ namespace TestTask
                     }
                 case "3":
                     {
-
-                        /*
-
-                        ObjectContext context = (new RecordContext() as IObjectContextAdapter).ObjectContext;
-                        ObjectQuery<Record> uniques = context.CreateQuery<Record>("SELECT Records.Id, Records.fsln, Records.dateOfBirth, Records.gender FROM Records WHERE Records.Id IN " +
-                                                                                     "(SELECT Records.id FROM Records R INNER JOIN" +
-                                                                                     "(SELECT Records.fsln, Records.dateOfBirth FROM Records" +
-                                                                                     "GROUP BY Records.fsln, Records.dateOfBirth HAVING COUNT(*) = 1" +
-                                                                                     ") T" +
-                                                                                     "ON R.fsln = T.fsln AND R.dateOfBirth = T.dateOfBirth)");
-                        uniques.OrderBy("Records.fsln");
-                        int age = 0;
-                        foreach (Record r in uniques)
+                        int age;
+                        var workaround = (from r in rc.records select r).ToList<Record>();
+                        List<Record> distinctAsRequested = workaround.GroupBy(r => new { r.fsln, r.dateOfBirth }).Select(group => group.First()).ToList();
+                        foreach (Record r in distinctAsRequested)
                         {
+                            
                             if (r.dateOfBirth.Month < DateTime.Today.Month)
                                 age = DateTime.Today.Year - r.dateOfBirth.Year;
                             if (r.dateOfBirth.Month == DateTime.Today.Month)
                             {
-                                if (r.dateOfBirth.Day<=DateTime.Today.Day)
+                                if (r.dateOfBirth.Day <= DateTime.Today.Day)
                                     age = DateTime.Today.Year - r.dateOfBirth.Year;
                                 else
-                                    age = DateTime.Today.Year - r.dateOfBirth.Year -1;
+                                    age = DateTime.Today.Year - r.dateOfBirth.Year - 1;
                             }
                             else
                                 age = DateTime.Today.Year - r.dateOfBirth.Year - 1;
-                            Console.WriteLine(r.fsln + " " + r.dateOfBirth.ToString() + " " + age);
-                        }*/
+                            Console.WriteLine("FSLN = " + r.fsln + ", Date of birth =  " + r.dateOfBirth + ", Age = " + age);
+                        }
                         break;
                     }
                 case "4":
