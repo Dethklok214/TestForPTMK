@@ -47,15 +47,18 @@ namespace TestTask
                             
                             if (r.dateOfBirth.Month < DateTime.Today.Month)
                                 age = DateTime.Today.Year - r.dateOfBirth.Year;
-                            if (r.dateOfBirth.Month == DateTime.Today.Month)
+                            else
                             {
-                                if (r.dateOfBirth.Day <= DateTime.Today.Day)
-                                    age = DateTime.Today.Year - r.dateOfBirth.Year;
+                                if (r.dateOfBirth.Month == DateTime.Today.Month)
+                                {
+                                    if (r.dateOfBirth.Day <= DateTime.Today.Day)
+                                        age = DateTime.Today.Year - r.dateOfBirth.Year;
+                                    else
+                                        age = DateTime.Today.Year - r.dateOfBirth.Year - 1;
+                                }
                                 else
                                     age = DateTime.Today.Year - r.dateOfBirth.Year - 1;
                             }
-                            else
-                                age = DateTime.Today.Year - r.dateOfBirth.Year - 1;
                             Console.WriteLine("FSLN = " + r.fsln + ", Date of birth =  " + r.dateOfBirth + ", Age = " + age);
                         }
                         break;
